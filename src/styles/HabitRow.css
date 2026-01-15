@@ -1,0 +1,98 @@
+.habit-name {
+  text-align: left !important;
+  font-weight: 500;
+  background: #ecf0f1 !important;
+  color: #2c3e50;
+  padding: 8px 6px !important;
+  font-size: 11px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.habit-name span {
+  cursor: pointer;
+  display: block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.edit-input {
+  width: 100%;
+  padding: 4px;
+  border: 2px solid #3498db;
+  border-radius: 4px;
+  font-size: 12px;
+  color: #333;
+}
+
+.day-cell {
+  cursor: pointer;
+  height: 32px;
+  transition: background 0.15s;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.day-cell:active {
+  background: #c8e6c9;
+}
+
+.day-cell.completed {
+  background: #4CAF50;
+  color: white;
+  font-weight: bold;
+  font-size: 14px;
+}
+
+.actions-cell {
+  background: #ecf0f1 !important;
+  padding: 4px 2px !important;
+}
+
+.actions-cell > div {
+  display: flex;
+  gap: 2px;
+  justify-content: center;
+}
+
+.edit-btn,
+.delete-btn {
+  padding: 4px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  background: white;
+  min-width: 28px;
+  min-height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.edit-btn:active {
+  background: #3498db;
+}
+
+.delete-btn:active {
+  background: #e74c3c;
+}
+
+@media (min-width: 768px) {
+  .habit-name {
+    font-size: 13px;
+    padding: 10px 8px !important;
+  }
+  
+  .day-cell {
+    height: 36px;
+  }
+  
+  .edit-btn,
+  .delete-btn {
+    font-size: 14px;
+    min-width: 32px;
+    min-height: 32px;
+  }
+}

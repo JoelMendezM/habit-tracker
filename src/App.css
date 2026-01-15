@@ -1,0 +1,25 @@
+.app {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto;
+  background: white;
+  padding: 15px;
+  min-height: 100vh;
+}
+
+@media (min-width: 768px) {
+  .app {
+    padding: 20px;
+    margin: 15px auto;
+    max-width: calc(100% - 30px);
+    min-height: auto;
+    border-radius: 12px;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+}
+
+@media (min-width: 1400px) {
+  .app {
+    max-width: 1350px;
+  }
+}
