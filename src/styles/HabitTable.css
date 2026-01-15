@@ -166,3 +166,18 @@
     padding: 12px 24px;
   }
 }
+
+/* ========== DÍA ACTUAL ========== */
+.today-header {
+  background: #3498db !important;
+  color: white !important;
+  font-weight: bold;
+}
+
+.today-cell {
+  border-top: 3px solid #3498db !important;
+}
+
+.today-cell.completed {
+  border-top: 3px solid #3498db !important;
+}

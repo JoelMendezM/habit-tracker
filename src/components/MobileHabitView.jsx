@@ -18,6 +18,13 @@ const MobileHabitView = ({
   const [editingId, setEditingId] = useState(null);
   const [editName, setEditName] = useState('');
 
+    // Detectar día actual
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+  const isToday = (day) => day === currentDay && month === currentMonth && year === currentYear;
+
   const daysOfWeek = ['Dom', 'Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb'];
   const dayOfWeek = new Date(year, month, selectedDay).getDay();
 
@@ -78,10 +85,10 @@ const MobileHabitView = ({
           const hasAnyCompleted = habits.some(h => h.days[`${year}-${month}-${day}`]);
           return (
             <button
-              key={day}
-              className={`mini-day ${selectedDay === day ? 'selected' : ''} ${hasAnyCompleted ? 'has-completed' : ''}`}
-              onClick={() => setSelectedDay(day)}
-            >
+  key={day}
+  className={`mini-day ${selectedDay === day ? 'selected' : ''} ${hasAnyCompleted ? 'has-completed' : ''} ${isToday(day) ? 'today' : ''}`}
+  onClick={() => setSelectedDay(day)}
+>
               {day}
             </button>
           );

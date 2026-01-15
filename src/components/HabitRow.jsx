@@ -9,7 +9,8 @@ const HabitRow = ({
   onToggleDay, 
   onUpdate, 
   onDelete,
-  monthTotal 
+  monthTotal,
+  currentDay
 }) => {
   const [isEditing, setIsEditing] = useState(false);
   const [editName, setEditName] = useState(habit.name);
@@ -50,10 +51,10 @@ const HabitRow = ({
         const isCompleted = habit.days[key];
         return (
           <td 
-            key={day}
-            className={`day-cell ${isCompleted ? 'completed' : ''}`}
-            onClick={() => onToggleDay(habit.id, year, month, day)}
-          >
+  key={day}
+  className={`day-cell ${isCompleted ? 'completed' : ''} ${day === currentDay ? 'today-cell' : ''}`}
+  onClick={() => onToggleDay(habit.id, year, month, day)}
+>
             {isCompleted ? '✓' : ''}
           </td>
         );

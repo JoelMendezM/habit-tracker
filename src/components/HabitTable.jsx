@@ -14,6 +14,12 @@ const HabitTable = ({
   onAddHabit,
   getMonthTotal
 }) => {
+    // Detectar día actual
+  const today = new Date();
+  const currentDay = today.getDate();
+  const currentMonth = today.getMonth();
+  const currentYear = today.getFullYear();
+  const isCurrentMonth = month === currentMonth && year === currentYear;
   return (
     <div>
       <div className="tracker-container">
@@ -22,8 +28,13 @@ const HabitTable = ({
             <tr>
               <th className="habit-column">HÁBITO</th>
               {days.map(day => (
-                <th key={day}>{day}</th>
-              ))}
+  <th 
+    key={day}
+    className={isCurrentMonth && day === currentDay ? 'today-header' : ''}
+  >
+    {day}
+  </th>
+))}
               <th className="total-column">TOT</th>
               <th className="actions-column">ACC</th>
             </tr>
@@ -40,6 +51,7 @@ const HabitTable = ({
                 onUpdate={onUpdateHabit}
                 onDelete={onDeleteHabit}
                 monthTotal={getMonthTotal(habit, year, month)}
+                currentDay={isCurrentMonth ? currentDay : null}
               />
             ))}
           </tbody>
