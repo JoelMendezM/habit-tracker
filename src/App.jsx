@@ -14,6 +14,7 @@ function App() {
 
   const {
     habits,
+    loading,  // ← Agregamos loading
     toggleDay,
     addHabit,
     updateHabitName,
@@ -37,6 +38,17 @@ function App() {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
+
+  // Mostrar pantalla de carga mientras se cargan los datos
+  if (loading) {
+    return (
+      <div className="app">
+        <div className="loading">
+          <p>Cargando hábitos...</p>
+        </div>
+      </div>
+    );
+  }
 
   return (
     <div className="app">
